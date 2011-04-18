@@ -43,7 +43,7 @@ function bulk_post_type_convertr_options() {
 			bulk_convert_posts();
 			if((($_POST['post_type'] != "-1") && ($_POST['new_post_type'] != "-1")) || (($_POST['taxonomy_from'] != "-1") && ($_POST['taxonomy_to'] != "-1")) || (($_POST['taxonomy_two_from'] != "-1") && ($_POST['taxonomy_two_to'] != "-1"))){
 		    ?>
-				<div class="updated"><p><strong><?php echo 'Converted Successfully!.'; ?></strong></p></div>
+				<div class="updated"><p><strong><?php echo 'Converted successfully!'; ?></strong></p></div>
 			<?php }else{ ?>
 				<div class="updated"><p><strong><?php echo 'Atleast one conversion must be selected.'; ?></strong></p></div>
 			<?php } ?>		
