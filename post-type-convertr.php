@@ -2,7 +2,7 @@
 /*
 Plugin Name: Post Type Convertr
 Plugin URI: http://graphpaperpress.com
-Version: 1.0
+Version: 1.0.1
 Author: Sanam Maharjan
 Author URI: http://graphpaperpress.com
 Description: Post Type Convertr is a bulk post conversion plugin for post types and taxonomies based on <a href="http://wordpress.org/extend/plugins/convert-post-types/">Convert Post Types</a> by Stephanie Leary.
