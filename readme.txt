@@ -2,8 +2,8 @@
 Contributors: kcssm
 Tags: post types, conversion, taxonomy, custom post type, converter
 Requires at least: 3.0
-Tested up to: 3.1.1
-Stable tag: 1.0
+Tested up to: 3.3
+Stable tag: 1.0.1
 
 A bulk conversion utility for post types and taxonomies.
 
@@ -25,6 +25,9 @@ This is a plugin for converting lots of posts or pages to a custom post type (or
 1. The options screen
 
 == Changelog ==
+
+= 1.0.1 =
+* Bug fixed for Wordpress 3.3 (December 25, 2011)
 
 = 1.0 =
 * First release (April 18, 2011)

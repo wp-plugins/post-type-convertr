@@ -23,7 +23,7 @@ License: GPL2
 
 add_action('admin_menu', 'bulk_convert_posts_add_pages');
 function bulk_convert_posts_add_pages() {
-	$css = add_management_page('Post Type Convertr', 'Post Type Convertr', 'manage_options', __FILE__, 'bulk_post_type_convertr_options');
+	$css = add_management_page('Post Type Convertr', 'Post Type Convertr', 'manage_options', dirname(__FILE__), 'bulk_post_type_convertr_options');
 	add_action("admin_head-$css", 'bulk_post_type_convertr_css');
 }
 
