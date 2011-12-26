@@ -2,7 +2,7 @@
 /*
 Plugin Name: Post Type Convertr
 Plugin URI: http://graphpaperpress.com
-Version: 1.0.1
+Version: 1.0.2
 Author: Sanam Maharjan
 Author URI: http://graphpaperpress.com
 Description: Post Type Convertr is a bulk post conversion plugin for post types and taxonomies based on <a href="http://wordpress.org/extend/plugins/convert-post-types/">Convert Post Types</a> by Stephanie Leary.
@@ -21,8 +21,8 @@ License: GPL2
 
 */
 
-add_action('admin_menu', 'bulk_convert_posts_add_pages');
-function bulk_convert_posts_add_pages() {
+add_action('admin_menu', 'bulk_post_type_convertr_page');
+function bulk_post_type_convertr_page() {
 	$css = add_management_page('Post Type Convertr', 'Post Type Convertr', 'manage_options', dirname(__FILE__), 'bulk_post_type_convertr_options');
 	add_action("admin_head-$css", 'bulk_post_type_convertr_css');
 }
@@ -41,7 +41,7 @@ function bulk_post_type_convertr_options() {
 		$hidden_field_name = 'bulk_convert_post_submit_hidden';
 		if( isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) {
 			bulk_convert_posts();
-			if((($_POST['post_type'] != "-1") && ($_POST['new_post_type'] != "-1")) || (($_POST['taxonomy_from'] != "-1") && ($_POST['taxonomy_to'] != "-1")) || (($_POST['taxonomy_two_from'] != "-1") && ($_POST['taxonomy_two_to'] != "-1"))){
+			if((($_POST['old_post_type'] != "-1") && ($_POST['new_post_type'] != "-1")) || (($_POST['taxonomy_from'] != "-1") && ($_POST['taxonomy_to'] != "-1")) || (($_POST['taxonomy_two_from'] != "-1") && ($_POST['taxonomy_two_to'] != "-1"))){
 		    ?>
 				<div class="updated"><p><strong><?php echo 'Converted successfully!'; ?></strong></p></div>
 			<?php }else{ ?>
@@ -73,7 +73,7 @@ function bulk_post_type_convertr_options() {
 					$typeselect2 .= "</option>";
 				}
 				?>
-				<select name="post_type">
+				<select name="old_post_type">
 					<option value="-1"><?php echo "Convert from..."; ?></option>
 					<?php echo $typeselectfrom; ?>
 				</select>
@@ -134,12 +134,12 @@ function bulk_post_type_convertr_options() {
 
 function bulk_convert_posts() {
 	global $wpdb, $wp_taxonomies, $wp_rewrite;
-	$q = 'numberposts=-1&post_status=any&post_type='.$_POST['post_type'];	
-	if(($_POST['post_type'] != "-1") && ($_POST['new_post_type'] != "-1")){
+	$q = 'numberposts=-1&post_status=any&post_type='.$_POST['old_post_type'];	
+	if(($_POST['old_post_type'] != "-1") && ($_POST['new_post_type'] != "-1")){
 		$items = get_posts($q);
 		foreach ($items as $item) {
 			// Update the post into the database		
-			$wpdb->update( $wpdb->posts, array( 'post_type' => $_POST['new_post_type']), array( 'ID' => $item->ID, 'post_type' => $_POST['post_type']), array( '%s' ), array( '%d', '%s' ) );
+			$wpdb->update( $wpdb->posts, array( 'post_type' => $_POST['new_post_type']), array( 'ID' => $item->ID, 'post_type' => $_POST['old_post_type']), array( '%s' ), array( '%d', '%s' ) );
 		}		
 	}
 	$wp_rewrite->flush_rules();
