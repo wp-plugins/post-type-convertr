@@ -1,9 +1,9 @@
 === Post Type Convertr ===
 Contributors: kcssm
 Tags: post types, conversion, taxonomy, custom post type, converter
-Requires at least: 3.0
-Tested up to: 3.3
-Stable tag: 1.0.2
+Requires at least: 4.2.2
+Tested up to: 4.2.2
+Stable tag: 1.0.3
 
 A bulk conversion utility for post types and taxonomies.
 
@@ -16,7 +16,7 @@ This is a plugin for converting lots of posts or pages to a custom post type (or
 == Installation ==
 
 1. Backup database first!
-2. Upload this plugin directory to `/wp-content/plugins/` 
+2. Upload this plugin directory to `/wp-content/plugins/`
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Go to Tools &rarr; Post Type Convertr to convert your posts and taxonomies.
 
@@ -25,6 +25,9 @@ This is a plugin for converting lots of posts or pages to a custom post type (or
 1. The options screen
 
 == Changelog ==
+
+= 1.0.3 =
+* Compatibility test with latest wordpress 4.2.2 (July 1, 2015)
 
 = 1.0.2 =
 * More bug fixed for Wordpress 3.3 (December 26, 2011)
